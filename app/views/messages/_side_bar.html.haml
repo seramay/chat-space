@@ -2,12 +2,13 @@
   .side-bar__header
     .top-items
       %p.top-items__name
+        = current_user.name
       %ul.top-items__icons
         %li
           =link_to "#", class: "top-items__icons--icon" do
             %i.fas.fa-edit
         %li
-          =link_to "#", class: "top-items__icons--icon" do
+          =link_to edit_user_path(current_user), class: "top-items__icons--icon" do
             %i.fas.fa-cog
   .side-bar__group-list
     -# Todo : link_to から group__message はグループが増えるたびに繰り返し処理によって表示
