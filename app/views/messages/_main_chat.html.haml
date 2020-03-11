@@ -2,23 +2,21 @@
   .group-info
     .group-info__info-left
       %p.group-info__info-left--name
+        = @group.name
       %ul.group-info__info-left--member-list
-        -# Todo : member-list li はメンバー追加による繰り返し処理による表示を行う
+        Member :
+        - @group.users.each do |user|
+          %li= user.name
         %li
-    =link_to "#", class: "group-info__info-right" do
+    =link_to edit_group_path(@group), class: "group-info__info-right" do
       Edit
   .message-list
-    -# Todo : messages から messages__message はフォーム投稿により繰り返し処理による表示を行う
-    .messages
-      .messages__detail
-        %p.messages__detail--name
-        %p.messages__detail--create
-      %p.messages__message
+    = render @messages    
   .message-form
-    %form.new-message
-      .new-message__input-box
-        %input.new-message__input-box--text{type: "text", placeholder: "type a message", value: ""}
-        %label.new-message__input-box--image
+    = form_for [@group, @message] do |f|
+      .new_message__input-box
+        = f.text_field :content, class: 'new_message__input-box--text', placeholder: "type a message"
+        = f.label :image, class: 'new_message__input-box--image' do
           %i.far.fa-image
-          %input{type: "file"}
-      %input.new-message__submit-btn{type: "submit", value: "Send"}
+          = f.file_field :image, class: 'hidden'
+      = f.submit 'Send', class: 'new_message__submit-btn'

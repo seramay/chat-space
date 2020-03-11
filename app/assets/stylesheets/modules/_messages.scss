@@ -135,11 +135,11 @@ a{
     background-color: #d2d2d2;
     padding: 0 40px;
     @include align-items();
-    .new-message{
+    .new_message{
       height: 50px;
       width: 100%;
-      @include space-between();
       align-items: center;
+      @include space-between();
       &__input-box{
         height: 50px;
         width: 100%;
@@ -159,7 +159,7 @@ a{
           position: absolute;
           right: 10px;
           cursor: pointer;
-          input{
+          .hidden{
             display: none;
           }
         }
