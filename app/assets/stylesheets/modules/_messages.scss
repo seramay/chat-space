@@ -107,6 +107,7 @@ a{
     width: 100%;
     background-color: #fafafa;
     padding: 35px 40px 0 40px;
+    overflow: scroll;
     .messages{
       margin-bottom: 46px;
       &__detail{
@@ -123,10 +124,10 @@ a{
           font-size: 12px;
         }
       }
-      &__message{
-        color: #434A54;
-        font-size: 14px;
-      }
+      &__message__content{
+          color: #434A54;
+          font-size: 14px;
+        }
     }
   }
   .message-form{
